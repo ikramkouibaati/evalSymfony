@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="list_item">
+        <h1>Connexion</h1>
+
+        <form action="{{ path('app_login') }}" method="post">
+            <div class="mb-3">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password" class="form-control">
+            </div>
+
+            {% if urlVehiculeConnexion != null %}
+                <input type="hidden" name="_target_path" value="{{ urlVehiculeConnexion }}">
+            {% else %}
+                <input type="hidden" name="_target_path" value="/">
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary">login</button>
+        </form>
+    <div>
+{% endblock %}

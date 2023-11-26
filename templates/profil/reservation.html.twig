@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandes{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="list_item">
+        <h1 class="text-center">Toutes vos Commandes</h1>
+        {% for commande in commandes %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img class="img-fluid rounded-start" src="{{ asset( commande.vehicule.photo ) }}" alt="image voiture">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h2 class="card-title">{{ commande.vehicule.titre }}</h2>
+                                    <p class="card-text"><strong>Marque :</strong>{{ commande.vehicule.marque }}</p>
+                                    <p class="card-text"><strong>Prix journalier :</strong>{{ commande.vehicule.prixJournalier }}€</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text"><strong>Description :</strong>{{ commande.vehicule.description }}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="card-text"><strong>Date de départ :</strong> {{ commande.dateHeurDepart|date('Y/m/d H:i') }}</p>
+                                    <p class="card-text"><strong>Date de retour :</strong> {{ commande.dateHeurFin|date('Y/m/d H:i') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% if commandes is empty %}
+            <p>Aucune commande n'a été réalisée avec votre compte.</p>
+        {% endif %}
+        <a href="{{ path('app_profil') }}" class="btn btn-secondary btnRetour btnWidth100">Retour au menu profil</a>
+    </div>
+{% endblock %}

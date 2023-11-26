@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Réservation</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Titre:</strong> {{ vehicules.titre }}</p>
+                <p><strong>Marque:</strong> {{ vehicules.marque }}</p>
+                <p><strong>Description:</strong> {{ vehicules.description }}</p>
+                <p><strong>Modèle:</strong> {{ vehicules.modele }}</p>
+                <p><strong>Prix Journalier:</strong> {{ vehicules.prixJournalier }}</p>
+                <p><strong>Date de début:</strong> {{ dateDeb is defined ? dateDeb|date('Y/m/d H:i') : '' }}</p>
+                <p><strong>Date de fin:</strong> {{ dateFin is defined ? dateFin|date('Y/m/d H:i') : '' }}</p>
+            </div>
+            <div class="col-md-6">
+                <img class="imageReservation" src="{{ asset( vehicules.photo ) }}" alt="image voiture">
+            </div>
+        </div>
+        <hr>
+
+        {% if app.user == null %}
+            <a href="{{path('app_login') }}" class="btn btn-primary btnRetour">Connexion</a>
+            <a href="{{ path('app_insription') }}" class="btn btn-primary btnRetour">Inscription</a>
+        {% else %}
+            <a href="{{ path('app_reservation_create', {'id': vehicules.id}) }}" class="btn btn-success btnRetour">Réserver</a>
+        {% endif %}
+    </div>
+{% endblock %}

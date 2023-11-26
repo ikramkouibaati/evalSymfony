@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Information{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+    <div class="list_item">
+        <h1>Information du compte</h1>
+        {{ form(form) }}
+        <a href="{{ path('app_profil') }}" class="btn btn-secondary btnRetour btnWidth100">Retour au menu profil</a>
+    <div class="list_item">
+{% endblock %}

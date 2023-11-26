@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3 champFormulaire">
+            {{ form_label(form.date_heur_depart) }}
+            {{ form_widget(form.date_heur_depart) }}
+            {{ form_errors(form.date_heur_depart) }}
+        </div>
+
+        <div class="col-3 champFormulaire">
+            {{ form_label(form.date_heur_fin) }}
+            {{ form_widget(form.date_heur_fin) }}
+            {{ form_errors(form.date_heur_fin) }}
+        </div>
+        <div class="col-2 champFormulaire">
+            {{ form_row(form.submit) }}
+        </div>
+        <div class="col-2"></div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

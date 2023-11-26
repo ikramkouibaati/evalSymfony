@@ -1,0 +1,49 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Membre index{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/scipt.js') }}"></script>
+{% endblock %}
+
+{% block bodyback %}
+    <h1>Membre index</h1>
+
+    <table class="table table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Civilite</th>
+                <th>Statut</th>
+                <th>Date_enregistrement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td>{{ membre.id }}</td>
+                <td>{{ membre.pseudo }}</td>
+                <td>{{ membre.nom }}</td>
+                <td>{{ membre.prenom }}</td>
+                <td>{{ membre.email }}</td>
+                <td>{{ membre.civilite }}</td>
+                <td>{{ membre.getLibelStatusForTableau() }}</td>
+                <td>{{ membre.dateEnregistrement ? membre.dateEnregistrement|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_membre_show', {'id': membre.id}) }}" class="btn btn-info">Voire</a>
+                    <a href="{{ path('app_membre_edit', {'id': membre.id}) }}" class="btn btn-warning">Modifier</a>
+                    {{ include('membre/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_membre_new') }}" class="btn btn-success">Créer</a>
+{% endblock %}

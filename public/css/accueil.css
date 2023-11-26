@@ -1,0 +1,46 @@
+/* Réinitialisation des marges et paddings */
+body, h1, h2, h3, p, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox pour le corps */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Styles pour les lignes */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: calc(100vh - 250px);
+}
+
+/* Champ formulaire avec des couleurs modifiées */
+.champFormulaire {
+    background-color: rgba(187, 170, 211, 0.7); /* Jaune orangé avec transparence */
+    padding: 20px; /* Légèrement plus de padding */
+    border: 2px solid #333; /* Bordure plus épaisse et plus sombre */
+    border-radius: 8px;
+    min-height: 150px; /* Légèrement plus haut */
+    max-height: 180px; /* Un peu plus haut que l'original */
+}
+
+/* Bouton de soumission avec un décalage vers le haut */
+#accueil_submit {
+    margin-top: 10%; /* Ajusté le décalage */
+    padding: 10px 20px;
+    background-color: rgb((226, 233, 172), 199, 125); /* Couleur de fond orangée */
+    color: #fff; /* Texte en blanc */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#accueil_submit:hover {
+    background-color: rgb((189, 134, 216), 0, 204); /* Légèrement plus foncé au survol */
+}

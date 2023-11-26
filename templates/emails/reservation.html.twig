@@ -1,0 +1,7 @@
+<h2>Bonjour {{ nomMembre }} {{ prenomMembre }},</h2>
+
+<p>Vous venez de créer une réservation sur le site RENT A CAR le {{ dateEnregistrement|date('Y/m/d') }}</p>
+<br>
+<p>Vous avez réserver {{ nomVoiture }} et votre réservation commence le :</p>
+<p> - Date et heure de début de réservation : {{ dateDebut|date('Y/m/d H:i') }}</p>
+<p> - Date et heure de fin de réservation : {{ DateFin|date('Y/m/d H:i') }}</p>

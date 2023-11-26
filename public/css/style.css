@@ -1,0 +1,64 @@
+/* Champ formulaire centré */
+.champFormulaire {
+    text-align: center;
+}
+
+/* Menu back avec bordure */
+#menuBack {
+    border-right: 1px solid #333; /* Couleur de la bordure */
+}
+
+/* Styles pour les colonnes d'images */
+.imageCollumn {
+    background: #f8f8f8; /* Couleur d'arrière-plan */
+    color: #444 !important; /* Couleur du texte */
+    font-weight: normal;
+    text-align: left;
+    text-transform: capitalize;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/* Taille des images */
+.imageIndex {
+    width: 200px;
+}
+
+/* Bouton de retour avec marge basse */
+.btnRetour {
+    margin-bottom: 15px;
+}
+
+/* Alertes */
+.alert {
+    z-index: 10;
+}
+
+/* Menu profil stylisé */
+.menu-profil {
+    margin-top: 20px;
+    height: 50px;
+    font-size: larger !important;
+    font-weight: bold !important;
+    color: #0066cc; /* Couleur du texte */
+}
+
+/* Images de réservation et espacement */
+.imageReservation {
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+/* Bouton de modification avec marge basse */
+.btnModif {
+    margin-bottom: 10px;
+}
+
+/* Contenu avec arrière-plan */
+.content {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: calc(100vh - 56px);
+}

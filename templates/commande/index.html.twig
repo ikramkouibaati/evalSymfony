@@ -1,0 +1,45 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/scipt.js') }}"></script>
+{% endblock %}
+
+{% block bodyback %}
+    <h1>Commande index</h1>
+
+    <table class="table table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_heur_depart</th>
+                <th>Date_heur_fin</th>
+                <th>Date_enregistrement</th>
+                <th>Membre</th>
+                <th>Vehicule</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.dateHeurDepart ? commande.dateHeurDepart|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.dateHeurFin ? commande.dateHeurFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.dateEnregistrement ? commande.dateEnregistrement|date('Y-m-d H:i:s') : '' }}</td>
+                <td><a href="{{ path('app_membre_edit', {'id': commande.membre.id}) }}">{{ commande.membre }}</a></td>
+                <td><a href="{{ path('app_vehicule_index', {'id': commande.vehicule.id}) }}">{{ commande.vehicule }}</a></td>
+                <td>
+                    <a href="{{ path('app_commande_show', {'id': commande.id}) }}" class="btn btn-info">Voire</a>
+                    <a href="{{ path('app_commande_edit', {'id': commande.id}) }}" class="btn btn-warning">Modifier</a>
+                    {{ include('commande/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_new') }}" class="btn btn-success">Créer</a>
+{% endblock %}

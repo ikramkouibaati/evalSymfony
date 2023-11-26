@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+    <div class="list_item">
+        <h2>Bonjour {{ app.user.prenom }} {{ app.user.prenom }}</h2>
+        <a href="{{ path('app_profil_information') }}" class="btn btn-primary menu-profil">Changer vos informations de comptes</a>
+        <a href="{{ path('app_profil_reservation') }}" class="btn btn-primary menu-profil">Visualisez vos commandes</a>
+    <div class="list_item">
+{% endblock %}

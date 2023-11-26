@@ -1,0 +1,50 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Vehicule{% endblock %}
+
+{% block bodyback %}
+    <h1>Vehicule</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vehicule.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ vehicule.titre }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ vehicule.marque }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ vehicule.modele }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ vehicule.description }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img class="imageIndex" src="{{ asset( vehicule.photo ) }}"></td>
+            </tr>
+            <tr>
+                <th>Prix_journalier</th>
+                <td>{{ vehicule.prixJournalier }}€</td>
+            </tr>
+            <tr>
+                <th>Date_enregistrement</th>
+                <td>{{ vehicule.dateEnregistrement ? vehicule.dateEnregistrement|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vehicule_index') }}" class="btn btn-secondary btnRetour">Retour a la liste</a>
+    <br>
+    <a href="{{ path('app_vehicule_edit', {'id': vehicule.id}) }}" class="btn btn-warning btnModif">Modifier</a>
+
+    {{ include('vehicule/_delete_form.html.twig') }}
+{% endblock %}

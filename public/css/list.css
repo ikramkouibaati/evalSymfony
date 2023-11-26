@@ -1,0 +1,45 @@
+.bg-color-tr {
+    background-color: rgba(192, 192, 192, 0.7);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: calc(100vh - 56px);
+}
+
+.list_item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 1500px;
+    height: fit-content;
+}
+
+.btn-filter {
+    margin-top: 30px;
+    height: 100px;
+    width: 100%;
+    font-size: 24px;
+}
+
+.font-weight-bold{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnWidth100 {
+    width: 185px !important;
+}
+
+.content-without-alert{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}

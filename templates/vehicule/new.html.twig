@@ -1,0 +1,11 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}New Vehicule{% endblock %}
+
+{% block bodyback %}
+    <h1>Créer Vehicule</h1>
+
+    {{ include('vehicule/_form.html.twig') }}
+
+    <a href="{{ path('app_vehicule_index') }}" class="btn btn-secondary btnRetour">Retour a la liste</a>
+{% endblock %}

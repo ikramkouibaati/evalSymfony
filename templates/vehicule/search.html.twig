@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicule{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="list_item">
+        <p class="text-center"> <!-- Centre le texte horizontalement -->
+            <button class="btn btn-primary btn-filter" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Afficher formulaire pour filtrer
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                {{ form(form) }}
+            </div>
+        </div>
+        <h1 class="text-center">Vehicules disponibles</h1> <!-- Centre le titre horizontalement -->
+        {% for vehicule in vehicules %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img class="img-fluid rounded-start" src="{{ asset( vehicule.photo ) }}" alt="image voiture">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ vehicule.titre }}</h2>
+                            <p class="card-text">{{ vehicule.description }}</p>
+                            <p class="card-text">{{ vehicule.prixJournalier }}€ / {{ vehicule.marque }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-center justify-content-center">
+                        <a href="{{ path('app_reservation', {'id': vehicule.id}) }}" class="btn btn-success font-weight-bold w-100 h-100">Voir l'offre</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% if vehicules is empty %}
+            <p class="text-center">Aucun véhicule n'est disponible pour vos dates de réservations</p>
+        {% endif %}
+    </div>
+{% endblock %}

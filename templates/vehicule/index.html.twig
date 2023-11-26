@@ -1,0 +1,49 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Vehicule index{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/scipt.js') }}"></script>
+{% endblock %}
+
+{% block bodyback %}
+    <h1>Vehicule index</h1>
+
+    <table class="table table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Description</th>
+                <th class="imageCollumn">Photo</th>
+                <th>Prix_journalier</th>
+                <th>Date_enregistrement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.id }}</td>
+                <td>{{ vehicule.titre }}</td>
+                <td>{{ vehicule.marque }}</td>
+                <td>{{ vehicule.modele }}</td>
+                <td>{{ vehicule.description }}</td>
+                <td><img class="imageIndex" src="{{ asset( vehicule.photo ) }}"></td>
+                <td>{{ vehicule.prixJournalier }} €</td>
+                <td>{{ vehicule.dateEnregistrement ? vehicule.dateEnregistrement|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_vehicule_show', {'id': vehicule.id}) }}" class="btn btn-info">Voire</a>
+                    <a href="{{ path('app_vehicule_edit', {'id': vehicule.id}) }}" class="btn btn-warning">Modifier</a>
+                    {{ include('vehicule/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vehicule_new') }}" class="btn btn-success">Créer</a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .col-2{
+            width: 11% !important;
+        }
+        .col-10{
+            width: 89% !important;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ asset('css/gestion.css') }}"/>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-2" id="menuBack">
+            {{ include('sidebar/backoffice.html.twig') }}
+        </div>
+        <div class="col-10">
+            {% block bodyback %}{% endblock %}
+        </div>
+    </div>
+
+
+{% endblock %}
